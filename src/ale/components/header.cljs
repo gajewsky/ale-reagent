@@ -2,4 +2,5 @@
 
 (defn header
   []
-  [:header "header"])
+  [:header
+   [:img.logo {:src "img/ale-logo.svg" :alt "Ale logo"}]])

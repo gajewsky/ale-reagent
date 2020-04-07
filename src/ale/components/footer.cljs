@@ -2,4 +2,5 @@
 
 (defn footer
   []
-  [:footer "footer"])
+  [:footer
+   [:img {:src "img/ale-icon.png" :alt "Ale logo"}]])
