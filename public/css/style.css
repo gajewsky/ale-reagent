@@ -270,7 +270,8 @@ hr {
 }
 
 .beer__artwork {
-  width: 100%;
+  max-width: 100px;
+  margin: 0 auto;
 }
 
 .beer__edit {
@@ -652,7 +653,7 @@ hr {
 .item img {
   margin: .4rem .4rem .4rem .2rem;
   border-radius: 4px;
-  max-width: 30px;
+  max-width: 20px;
 }
 
 .item .content {
