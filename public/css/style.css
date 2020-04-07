@@ -56,8 +56,6 @@ button:focus {
 	outline:0;
 }
 
-/* = giggin ================================================================ */
-
 :root {
   --primary: #021d49;
   --primary-alpha: rgba(2, 29, 73, 0.5);
@@ -197,13 +195,13 @@ hr {
   padding: .8rem;
 }
 
-.gigs {
+.beers {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
   grid-gap: 20px;
 }
 
-.gig {
+.beer {
   display: grid;
   grid-template-columns: 100px 1fr;
   grid-gap: 10px;
@@ -217,41 +215,41 @@ hr {
   border-top-right-radius: 6px;
 }
 
-.gig .gig__body p {
+.beer .beer__body p {
   padding: .8rem;
   font-size: 1rem;
   line-height: 1.4;
 }
 
-.gig .gig__footer {
+.beer .beer__footer {
   padding: .8rem;
 }
 
-.gig .gig-header:last-child,
-.gig .gig-body:last-child,
-.gig .gig-footer:last-child {
+.beer .beer-header:last-child,
+.beer .beer-body:last-child,
+.beer .beer-footer:last-child {
   padding-bottom: .8rem;
 }
 
-.gig .gig-image {
+.beer .beer-image {
   padding-top: .8rem;
 }
 
-.gig .gig-image:first-child {
+.beer .beer-image:first-child {
   padding-top: 0;
 }
 
-.gig__artwork:first-child {
+.beer__artwork:first-child {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
 
-.gig {
+.beer {
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
 }
 
-.gig .gig__body .gig__title {
+.beer .beer__body .beer__title {
   padding: .8rem;
   padding-bottom: 0;
   font-size: 1rem;
@@ -260,28 +258,28 @@ hr {
 	color: var(--secondary);
 }
 
-.gig .gig__body .gig__price {
+.beer .beer__body .beer__price {
   padding-top: .1rem;
   width: 100%;
   color: var(--primary-alpha);
 }
 
-.gig .gig__body .gig__desc {
+.beer .beer__body .beer__desc {
   font-size: .8rem;
   padding-bottom: .8rem;
 }
 
-.gig__artwork {
+.beer__artwork {
   width: 100%;
 }
 
-.gig__edit {
+.beer__edit {
   width: 100%;
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
 }
 
-.gig__edit:hover {
+.beer__edit:hover {
   cursor:pointer;
   opacity: 0.4
 }
@@ -708,7 +706,7 @@ hr {
 }
 
 /* = add-event =*/
-.add-gig {
+.add-beer {
   border: .05rem solid #fff;
   background-color: #fff;
   color: var(--secondary);
@@ -718,7 +716,7 @@ hr {
   opacity: 0.4;
 }
 
-.add-gig:hover {
+.add-beer:hover {
   cursor: pointer;
   border-radius: 6px;
   padding: 3.2rem 1.6rem;
@@ -727,7 +725,7 @@ hr {
   transition: opacity 0.3s ease-in-out;
 }
 
-.add-gig .add__title {
+.add-beer .add__title {
   margin: .8rem auto;
 }
 
