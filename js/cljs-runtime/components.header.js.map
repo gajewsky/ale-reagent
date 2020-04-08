@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/header.cljs"],"mappings":";;AAEA,AAAA,AAAMA;AAAN,AAAA,AAAA,AAAA","names":["ale.components.header/header"],"sourcesContent":["(ns ale.components.header)\n\n(defn header\n  []\n  [:header \"header\"])\n"]}

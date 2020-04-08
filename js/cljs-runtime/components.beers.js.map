@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/beers.cljs"],"mappings":";;AAEA,AAAA,AAAMA;AAAN,AAAA,AAAA,AAAA","names":["ale.components.beers/beers"],"sourcesContent":["(ns ale.components.beers)\n\n(defn beers\n  []\n  [:beers \"beers\"])\n"]}

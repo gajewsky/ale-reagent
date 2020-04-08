@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/orders.cljs"],"mappings":";;AAEA,AAAA,AAAMA;AAAN,AAAA,AAAA,AAAA","names":["ale.components.orders/orders"],"sourcesContent":["(ns ale.components.orders)\n\n(defn orders\n  []\n  [:orders \"orders\"])\n"]}

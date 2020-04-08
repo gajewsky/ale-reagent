@@ -1,0 +1,1 @@
+{"version":3,"sources":["ale/components/header.cljs"],"mappings":";;AAEA,AAAA,AAAMA;AAAN,AAAA,AAAA,AAAA,AAAA,AAAA,AAAA,AAAA,AAAA,AAAA","names":["ale.components.header/header"],"sourcesContent":["(ns ale.components.header)\n\n(defn header\n  []\n  [:header\n   [:img.logo {:src \"img/ale-logo.svg\" :alt \"Ale logo\"}]])\n"]}

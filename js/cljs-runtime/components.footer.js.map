@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/footer.cljs"],"mappings":";;AAEA,AAAA,AAAMA;AAAN,AAAA,AAAA,AAAA","names":["ale.components.footer/footer"],"sourcesContent":["(ns ale.components.footer)\n\n(defn footer\n  []\n  [:footer \"footer\"])\n"]}
