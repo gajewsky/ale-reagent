@@ -1,5 +1,6 @@
 (ns ale.components.beers
-  (:require [ale.state :as state]))
+  (:require [ale.state :as state]
+            [ale.helpers :refer [format-price]]))
 
 (defn add-to-cart
   [beer]
@@ -16,7 +17,7 @@
       {:data-tooltip "Add to cart"
        :on-click #(add-to-cart beer)}
      [:i.icon.icon--plus]] (:name beer) ]
-    [:p.beer__price (:price beer)]
+    [:p.beer__price (format-price (:price beer))]
     [:p.beer_desc (:desc beer)]]])
 
 
