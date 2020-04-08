@@ -1,10 +1,12 @@
 {:source-paths ["src"]
 
  :dependencies [[binaryage/devtools "0.9.10"]
-                [proto-repl "0.3.1"]
+                [cider/cider-nrepl "0.22.4"]
                 [reagent "0.8.0"]]
 
  :nrepl        {:port 3333}
+
+ :dev-http     {8080 "public"}
 
  :builds
  {:app {:target :browser
