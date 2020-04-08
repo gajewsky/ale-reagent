@@ -2,24 +2,21 @@
   (:require [ale.state :as state]
             [ale.helpers :refer [format-price]]))
 
-(defn add-to-cart
-  [beer]
-  (swap! state/orders update (:id beer) inc)
-  (.log js/console "Hello, world!"))
-
 (defn beer-component
   [beer]
-  [:div.beer {:key (:id beer)}
-   [:img.beer__artwork {:src (:img beer) :alt (:name beer)}]
-   [:div.beer__body
-    [:div.beer__name
-     [:div.btn.btn--primary.float--right.tooltip
-      {:data-tooltip "Add to cart"
-       :on-click #(add-to-cart beer)}
-     [:i.icon.icon--plus]] (:name beer) ]
-    [:p.beer__price (format-price (:price beer))]
-    [:p.beer_desc (:desc beer)]]])
+  (let [{:keys [id img desc price name]} beer
+        add-to-cart #(swap! state/orders update (:id beer) inc)]
 
+    [:div.beer {:key id}
+     [:img.beer__artwork {:src img :alt name}]
+     [:div.beer__body
+      [:div.beer__name
+       [:div.btn.btn--primary.float--right.tooltip
+        {:data-tooltip "Add to cart"
+         :on-click #(add-to-cart)}
+        [:i.icon.icon--plus]] name ]
+      [:p.beer__price (format-price price)]
+      [:p.beer_desc desc]]]))
 
 (defn beers
   []

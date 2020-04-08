@@ -2,23 +2,12 @@
   (:require [ale.state :as state]
             [ale.helpers :refer [format-price]]))
 
-(defn remove-order
-  [id]
-  (swap! state/orders dissoc id))
-
-(defn remove-all
-  []
-  (reset! state/orders {}))
-
-(defn total
-  []
-  (->> @state/orders
-       (map (fn[[id quantity]] (* quantity (get-in @state/beers [id :price]))))
-       (reduce +)))
 
 (defn order-component
   [id quantity]
-  (let [{:keys [img name price]} (get @state/beers id)]
+  (let [{:keys [img name price]} (get @state/beers id)
+        remove-order #(swap! state/orders dissoc id)]
+
     [:div.item {:key id}
      [:div.img
       [:img {:src img}]]
@@ -28,27 +17,32 @@
        [:div.price (format-price (* price quantity))]
        [:button.btn.btn--link.tooltip
         {:data-tooltip "Remove"
-         :on-click #(remove-order id)}
+         :on-click #(remove-order)}
         [:i.icon.icon--cross]]]]]))
 
-(defn order-list
+(defn orders-list
   []
-  [:div
-   [:div.order
-    [:div.body
-     (for [[id quantity] @state/orders]
-       (order-component id quantity))]]
+  (let [remove-all #(reset! state/orders {})
+        total #(->> @state/orders
+                    (map (fn[[id quantity]] (* quantity (get-in @state/beers [id :price]))))
+                    (reduce +))]
 
-   [:div.total
-    [:hr]
-    [:div.item
-     [:div.content "Total"]
-     [:div.action
-      [:div.price (format-price (total))]]
-     [:button.btn.btn--link.tooltip
-      {:data-tooltip "Remove all"
-       :on-click #(remove-all)}
-      [:i.icon.icon--delete]]]]])
+    [:div
+     [:div.order
+      [:div.body
+       (for [[id quantity] @state/orders]
+         (order-component id quantity))]]
+
+     [:div.total
+      [:hr]
+      [:div.item
+       [:div.content "Total"]
+       [:div.action
+        [:div.price (format-price (total))]]
+       [:button.btn.btn--link.tooltip
+        {:data-tooltip "Remove all"
+         :on-click #(remove-all)}
+        [:i.icon.icon--delete]]]]]))
 
 (defn orders
   []
@@ -57,4 +51,4 @@
      [:div.empty
       [:div.title "You don't have any orders"]
       [:div.subtitle "Click on a + to add an order"]]
-     (order-list))])
+     (orders-list))])
