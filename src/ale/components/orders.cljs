@@ -1,6 +1,7 @@
 (ns ale.components.orders
   (:require [ale.state :as state]
-            [ale.helpers :refer [format-price]]))
+            [ale.helpers :refer [format-price]]
+            [ale.components.checkout-modal :refer [checkout-modal]]))
 
 
 (defn order-component
@@ -42,7 +43,8 @@
        [:button.btn.btn--link.tooltip
         {:data-tooltip "Remove all"
          :on-click #(remove-all)}
-        [:i.icon.icon--delete]]]]]))
+        [:i.icon.icon--delete]]]
+      [checkout-modal]]]))
 
 (defn orders
   []

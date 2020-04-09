@@ -1,6 +1,8 @@
 (ns ale.components.beers
   (:require [ale.state :as state]
-            [ale.helpers :refer [format-price]]))
+            [ale.helpers :refer [format-price]]
+            [reagent.core :as r]
+            [ale.components.beer-editor :refer [beer-editor]]))
 
 (defn beer-component
   [beer]
@@ -20,9 +22,25 @@
 
 (defn beers
   []
-  [:main
-   [:div.beers
-    (for [beer (vals @state/beers)]
-      (beer-component beer))]])
+  (let [modal (r/atom false)
+        values (r/atom
+                 {:id nil
+                  :title ""
+                  :desc ""
+                  :price 0
+                  :img ""
+                  :sold-out false})]
+    (fn
+      []
+      [:main
+       [:div.gigs
+        [:button.add-gig
+         {:on-click #(reset! modal true)}
+         [:div.add__title
+          [:i.icon.icon--plus]
+          [:p "Add gig"]]]
+        [beer-editor modal values]
+        (for [beer (vals @state/beers)]
+          [beer-component beer])]])))
 
 
