@@ -13,35 +13,35 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* apply a natural box layout model to all elements, but allowing views to change */
@@ -53,18 +53,18 @@ html {
 }
 
 button:focus {
-	outline:0;
+  outline:0;
 }
 
 :root {
   --primary: #021d49;
   --primary-alpha: rgba(2, 29, 73, 0.5);
   --secondary: #00ffb0;
-	--secondary-alpha: rgba(0, 255,126, 0.5);
+  --secondary-alpha: rgba(0, 255,126, 0.5);
   --gray: #f6f6f6;
   --gray-alpha: rgba(246, 246, 246, 0.9);
   --black-color: #222223;
-	--red-color: #ff4d4f
+  --red-color: #ff4d4f
 }
 
 ::selection {
@@ -78,7 +78,7 @@ button:focus {
 body, button {
   font-family: 'Poppins', sans-serif;
   font-size: 1.4rem;
-	background: var(--gray);
+  background: var(--gray);
   color: var(--primary)
 }
 
@@ -177,12 +177,12 @@ hr {
 }
 
 .payment {
-	max-width: 400px;
+  max-width: 400px;
   margin: 0 auto;
 }
 
 .payment-logo {
-	padding-top: 6vh;
+  padding-top: 6vh;
   width: 100%;
 }
 
@@ -255,7 +255,7 @@ hr {
   font-size: 1rem;
   line-height: 1.4;
   font-size: 1.2rem;
-	color: var(--secondary);
+  color: var(--secondary);
 }
 
 .beer .beer__body .beer__price {
@@ -270,7 +270,7 @@ hr {
 }
 
 .beer__artwork {
-  max-width: 100px;
+  max-width: 400px;
   margin: 0 auto;
 }
 
@@ -286,15 +286,15 @@ hr {
 }
 
 .sold-out {
-	border: .05rem solid var(--red-color);
+  border: .05rem solid var(--red-color);
   border-color: var(--red-color);
-	background: #fff;
+  background: #fff;
   color: var(--red-color);
   border-radius: 6px;
-	font-size: .9rem;
-	height: 2rem;
-	padding: .45rem .6rem;
-	line-height: 1rem;
+  font-size: .9rem;
+  height: 2rem;
+  padding: .45rem .6rem;
+  line-height: 1rem;
   outline: none;
   text-align: center;
 }
@@ -541,7 +541,7 @@ hr {
   transition: all .2s ease;
   white-space: pre;
   z-index: 300;
-	bottom: 50%;
+  bottom: 50%;
   left: auto;
   right: 100%;
   transform: translate(.4rem, 50%);
@@ -567,7 +567,7 @@ hr {
   display: -ms-flexbox;
   -ms-flex-direction: column;
   flex-direction: column;
-	background: #fff;
+  background: #fff;
 }
 
 .order .total {
@@ -597,12 +597,12 @@ hr {
   display: -ms-flexbox;
   -ms-flex-direction: column;
   flex-direction: column;
-	-ms-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   padding: .8rem;
   font-size: 1.1rem;
-	margin-bottom: 1rem;
-	background: #fff;
+  margin-bottom: 1rem;
+  background: #fff;
 }
 
 
@@ -624,7 +624,7 @@ hr {
 }
 
 .item .action .price {
-	-webkit-appearance: none;
+  -webkit-appearance: none;
   -moz-appearance: none;
   background: #fff;
   display: inline-block;
@@ -642,12 +642,12 @@ hr {
   font-size: .9rem;
   height: 2rem;
   padding: .45rem .6rem;
-	background: transparent;
+  background: transparent;
   border-color: transparent;
   color: var(--primary);
-	cursor: default;
-	opacity: .5;
-	pointer-events: none;
+  cursor: default;
+  opacity: .5;
+  pointer-events: none;
 }
 
 .item img {
@@ -675,7 +675,7 @@ hr {
   -webkit-margin-before: 0px;
   line-height: 1rem;
   font-size: .9rem;
-	color: var(--red-color);
+  color: var(--red-color);
 }
 
 .item.item-centered .title,
@@ -733,7 +733,7 @@ hr {
 /* = modal = */
 
 .checkout-modal {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 .checkout {
@@ -780,7 +780,7 @@ hr {
 
 .modal:target .modal__container,
 .modal.active .modal__container {
-	box-shadow: none;
+  box-shadow: none;
   max-width: 960px;
   width: 100%;
   z-index: 1;
@@ -912,11 +912,11 @@ hr {
 }
 
 .form__label {
-	color: var(--primary);
+  color: var(--primary);
   display: block;
   line-height: 1rem;
   padding: .4rem 0;
-	margin-top: .6rem;
+  margin-top: .6rem;
   font-size: .8rem;
 }
 
@@ -995,7 +995,7 @@ textarea.form__input {
   display: inline-block;
   position: absolute;
   transition: all .2s ease;
-	font-size: .8rem;
+  font-size: .8rem;
 }
 
 .form__switch.input-lg {

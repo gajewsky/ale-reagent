@@ -1,5 +1,6 @@
 (ns ale.core
-  (:require [reagent.core :as r]
+  (:require [reagent.dom :as r]
+            [ale.api :as api]
             [ale.components.header :refer [header]]
             [ale.components.beers  :refer [beers]]
             [ale.components.orders :refer [orders]]
@@ -18,6 +19,7 @@
 
 (defn ^:export main
   []
+  (api/fetch-beers)
   (r/render
     [app]
     (.getElementById js/document "app")))

@@ -8,7 +8,8 @@
 (defn beer-component
   [beer toggle-modal]
   (let [{:keys [id img desc price name]} beer
-        add-to-cart #(swap! state/orders update (:id beer) inc)]
+        add-to-cart #(swap! state/orders update (:id beer) inc)
+        short-desc (str (subs desc 0 50) "...")]
 
     [:div.beer {:key id}
      [:img.beer__artwork.beer__edit {:src img
@@ -22,7 +23,7 @@
          :on-click #(add-to-cart)}
         [:i.icon.icon--plus]] name ]
       [:p.beer__price (format-price price)]
-      [:p.beer_desc desc]]]))
+      [:p.beer_desc short-desc]]]))
 
 (defn beers
   []
