@@ -3,7 +3,8 @@
             [ale.helpers :refer [format-price]]
             [ale.components.beer-editor :refer [beer-editor]]
             [reagent.core :as r]
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            [ale.fb.db :refer [db-save!]]))
 
 (defn beer-component
   [beer toggle-modal]
@@ -41,15 +42,15 @@
                        (swap! modal assoc :active active)
                        (reset! values beer))
 
-        save-beer (fn [{:keys [id name desc price img sold-out]}]
-                    (swap! state/beers assoc id {:id (or id (str "beer-" (random-uuid)))
-                                                 :name (str/trim name)
-                                                 :desc (str/trim desc)
-                                                 :img (str/trim img)
-                                                 :price (js/parseInt price)
-                                                 :sold-out sold-out})
-
-                    (toggle-modal {:active false :beer initial-values}))]
+            save-beer (fn [{:keys [id name desc price img sold-out]}]
+                     (let [id (or id (str "beer-" (random-uuid)))]
+                       (db-save! ["beers" id] #js {:id id
+                                                  :name (str/trim name)
+                                                  :desc (str/trim desc)
+                                                  :img (str/trim img)
+                                                  :price (js/parseInt price)
+                                                  :sold-out sold-out}))
+                     (toggle-modal {:active false :gig initial-values}))]
     (fn
       []
       [:main
