@@ -8,7 +8,7 @@
 
 (defn order-component
   [id quantity]
-  (let [{:keys [img name price]} (get @state/beers id)
+  (let [{:keys [img name price sold-out]} (get @state/beers id)
         remove-order #(swap! state/orders dissoc id)]
 
     [:div.item {:key id}
@@ -17,7 +17,9 @@
      [:div.content
       [:p.title (str name " \u00D7 " quantity)]
       [:div.action
-       [:div.price (format-price (* price quantity))]
+       (if sold-out
+         [:div.price (format-price 0)]
+         [:div.price (format-price (* price quantity))])
        [:button.btn.btn--link.tooltip
         {:data-tooltip "Remove"
          :on-click #(remove-order)}
@@ -27,7 +29,9 @@
   []
   (let [remove-all #(reset! state/orders {})
         total #(->> @state/orders
-                    (map (fn[[id quantity]] (* quantity (get-in @state/beers [id :price]))))
+                    (map (fn[[id quantity]]
+                           (let [{:keys [ price sold-out]} (get @state/beers id)]
+                             (if sold-out 0 (* quantity price)))))
                     (reduce +))]
 
     [:div

@@ -8,8 +8,8 @@
 
 (defn beer-component
   [beer toggle-modal]
-  (let [{:keys [id img desc price name]} beer
-        add-to-cart #(swap! state/orders update (:id beer) inc)
+  (let [{:keys [id img desc price name sold-out]} beer
+        add-to-cart #(swap! state/orders update (keyword id) inc)
         short-desc (str (subs desc 0 50) "...")]
 
     [:div.beer {:key id}
@@ -19,10 +19,12 @@
                                                                :beer beer})}]
      [:div.beer__body
       [:div.beer__name
-       [:div.btn.btn--primary.float--right.tooltip
-        {:data-tooltip "Add to cart"
-         :on-click #(add-to-cart)}
-        [:i.icon.icon--plus]] name ]
+       (if sold-out
+         [:div.sold-out.float--right "Soldout"]
+         [:div.btn.btn--primary.float--right.tooltip
+          {:data-tooltip "Add to cart"
+           :on-click #(add-to-cart)}
+          [:i.icon.icon--plus]]) name]
       [:p.beer__price (format-price price)]
       [:p.beer_desc short-desc]]]))
 
