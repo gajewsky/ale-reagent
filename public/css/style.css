@@ -654,7 +654,7 @@ hr {
 .item img {
   margin: .4rem .4rem .4rem .2rem;
   border-radius: 4px;
-  max-width: 20px;
+  max-width: 75px;
 }
 
 .item .content {
