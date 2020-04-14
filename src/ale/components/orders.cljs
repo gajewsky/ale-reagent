@@ -1,7 +1,9 @@
 (ns ale.components.orders
   (:require [ale.state :as state]
             [ale.helpers :refer [format-price]]
-            [ale.components.checkout-modal :refer [checkout-modal]]))
+            [ale.components.checkout-modal :refer [checkout-modal]]
+            [ale.components.admin-panel :refer [admin-panel]]))
+
 
 
 (defn order-component
@@ -49,6 +51,7 @@
 (defn orders
   []
   [:aside
+   [admin-panel]
    (if (empty? @state/orders)
      [:div.empty
       [:div.title "You don't have any orders"]
