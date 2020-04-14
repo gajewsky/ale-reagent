@@ -13,10 +13,11 @@
         short-desc (str (subs desc 0 50) "...")]
 
     [:div.beer {:key id}
-     [:img.beer__artwork.beer__edit {:src img
+     [:img.beer__artwork {:class (when @state/user "beer__edit")
+                                     :src img
                                      :alt name
-                                     :on-click #(toggle-modal {:active true
-                                                               :beer beer})}]
+                                     :on-click (when @state/user #(toggle-modal {:active true
+                                                               :beer beer}))}]
      [:div.beer__body
       [:div.beer__name
        (if sold-out
@@ -52,16 +53,17 @@
                                                   :img (str/trim img)
                                                   :price (js/parseInt price)
                                                   :sold-out sold-out}))
-                     (toggle-modal {:active false :gig initial-values}))]
+                     (toggle-modal {:active false :beer initial-values}))]
     (fn
       []
       [:main
        [:div.beers
-        [:button.add-beer
-         {:on-click #(toggle-modal {:active true :beer initial-values})}
-         [:div.add__name
-          [:i.icon.icon--plus]
-          [:p "Add beer"]]]
+        (when @state/user
+          [:button.add-beer
+           {:on-click #(toggle-modal {:active true :beer initial-values})}
+           [:div.add__name
+            [:i.icon.icon--plus]
+            [:p "Add beer"]]])
         [beer-editor
          {:modal modal
           :values values

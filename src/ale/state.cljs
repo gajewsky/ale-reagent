@@ -4,3 +4,5 @@
 (def beers (r/atom {}))
 
 (def orders (r/atom {}))
+
+(def user (r/atom nil))

@@ -55,7 +55,6 @@
 (defn orders
   []
   [:aside
-   [admin-panel]
    (if (empty? @state/orders)
      [:div.empty
       [:div.title "You don't have any orders"]
