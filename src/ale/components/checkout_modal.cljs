@@ -17,8 +17,7 @@
         [:div.modal__container
          [:div.modal__body
           [:div.payment
-           [:img.payment-logo {:src "/img/paypal.svg" :alt "Paypal logo"}]
-           [:img.payment-logo {:src "/img/stripe.svg" :alt "Stripe logo"}]]]
+           [:img.payment-logo {:src "/img/paypal.svg" :alt "Paypal logo"}]]]
          [:div.modal__footer
           [:button.btn.btn--link.float--left
            {:on-click #(toggle-modal false)}
