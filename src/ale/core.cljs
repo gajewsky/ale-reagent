@@ -16,11 +16,14 @@
    [footer]
    ]
   )
-
-(defn ^:export main
+(defn ^:dev/after-load start
   []
   (r/render
     [app]
-    (.getElementById js/document "app"))
+    (.getElementById js/document "app")))
+
+(defn ^:export main
+  []
+  (start)
   (firebase-init)
   (db-subscribe ["beers"]))

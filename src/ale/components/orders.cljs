@@ -1,10 +1,7 @@
 (ns ale.components.orders
   (:require [ale.state :as state]
             [ale.helpers :refer [format-price]]
-            [ale.components.checkout-modal :refer [checkout-modal]]
-            [ale.components.admin-panel :refer [admin-panel]]))
-
-
+            [ale.components.checkout-modal :refer [checkout-modal]]))
 
 (defn order-component
   [id quantity]

@@ -14,10 +14,10 @@
 
     [:div.beer {:key id}
      [:img.beer__artwork {:class (when @state/user "beer__edit")
-                                     :src img
-                                     :alt name
-                                     :on-click (when @state/user #(toggle-modal {:active true
-                                                               :beer beer}))}]
+                          :src img
+                          :alt name
+                          :on-click (when @state/user #(toggle-modal {:active true
+                                                                      :beer beer}))}]
      [:div.beer__body
       [:div.beer__name
        (if sold-out
@@ -45,15 +45,15 @@
                        (swap! modal assoc :active active)
                        (reset! values beer))
 
-            save-beer (fn [{:keys [id name desc price img sold-out]}]
-                     (let [id (or id (str "beer-" (random-uuid)))]
-                       (db-save! ["beers" id] #js {:id id
+        save-beer (fn [{:keys [id name desc price img sold-out]}]
+                    (let [id (or id (str "beer-" (random-uuid)))]
+                      (db-save! ["beers" id] #js {:id id
                                                   :name (str/trim name)
                                                   :desc (str/trim desc)
                                                   :img (str/trim img)
                                                   :price (js/parseInt price)
                                                   :sold-out sold-out}))
-                     (toggle-modal {:active false :beer initial-values}))]
+                    (toggle-modal {:active false :beer initial-values}))]
     (fn
       []
       [:main
@@ -72,5 +72,3 @@
           :initial-values initial-values}]
         (for [beer (vals @state/beers)]
           [beer-component beer toggle-modal])]])))
-
-
